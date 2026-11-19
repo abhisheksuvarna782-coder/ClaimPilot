@@ -11,40 +11,53 @@ export default {
         deepblack: "#0A0A0A",
         electric: {
           DEFAULT: "#007BA7",
-          light: "#00A3E0",
-          glow: "#00C2FF",
-          dark: "#005370",
-          dim: "#003244",
+          dim: "rgba(0, 123, 167, 0.15)",
+          border: "rgba(0, 123, 167, 0.40)",
         },
         lavender: {
           DEFAULT: "#C9C2DC",
-          light: "#EAE7F2",
-          dim: "#8E88A8",
-          dark: "#5A5473",
+          highlight: "#E4DFEE",
+          muted: "#8E88A8",
+          border: "rgba(201, 194, 220, 0.12)",
+          faint: "rgba(201, 194, 220, 0.04)",
+        },
+        status: {
+          pass: {
+            bg: "rgba(16, 185, 129, 0.12)",
+            border: "rgba(16, 185, 129, 0.40)",
+            text: "#34D399",
+          },
+          missing: {
+            bg: "rgba(245, 158, 11, 0.12)",
+            border: "rgba(245, 158, 11, 0.40)",
+            text: "#FBBF24",
+          },
+          conflict: {
+            bg: "rgba(168, 85, 247, 0.12)",
+            border: "rgba(168, 85, 247, 0.40)",
+            text: "#C084FC",
+          },
+          fail: {
+            bg: "rgba(244, 63, 94, 0.12)",
+            border: "rgba(244, 63, 94, 0.40)",
+            text: "#FB7185",
+          },
+          unverified: {
+            bg: "rgba(148, 163, 184, 0.12)",
+            border: "rgba(148, 163, 184, 0.40)",
+            text: "#94A3B8",
+          },
         },
       },
       fontFamily: {
-        sans: ["Space Grotesk", "Inter", "sans-serif"],
-        heading: ["Orbitron", "Space Grotesk", "sans-serif"],
+        display: ["Space Grotesk", "sans-serif"],
+        heading: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         mono: ["JetBrains Mono", "SF Mono", "Consolas", "monospace"],
       },
-      boxShadow: {
-        'glow-sm': '0 0 10px rgba(0, 123, 167, 0.35)',
-        'glow-md': '0 0 20px rgba(0, 123, 167, 0.45)',
-        'glow-lg': '0 0 35px rgba(0, 123, 167, 0.55)',
-        'glow-cyan': '0 0 25px rgba(0, 194, 255, 0.5)',
+      transitionTimingFunction: {
+        'studio': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'equalizer': 'equalize 1.2s ease-in-out infinite alternate',
-      },
-      keyframes: {
-        equalize: {
-          '0%': { height: '15%' },
-          '50%': { height: '90%' },
-          '100%': { height: '35%' },
-        }
-      }
     },
   },
   plugins: [],

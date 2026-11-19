@@ -10,7 +10,7 @@ import {
   TrendingUp,
   Clock
 } from 'lucide-react';
-import GlassPanel from '../components/ui/GlassPanel';
+import Panel from '../components/ui/Panel';
 import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import PlannedBadge from '../components/ui/PlannedBadge';
@@ -60,7 +60,7 @@ export default function AnalyticsPage() {
 
       {/* Primary KPI Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-        <GlassPanel className="p-5 border-electric/30">
+        <Panel className="p-5 border-electric/30">
           <span className="text-[10px] font-mono uppercase tracking-widest text-lavender-dim block mb-1">
             Total Fields Extracted
           </span>
@@ -70,9 +70,9 @@ export default function AnalyticsPage() {
           <span className="text-[11px] font-mono text-electric-light block mt-1">
             Across 2 synthetic PDFs
           </span>
-        </GlassPanel>
+        </Panel>
 
-        <GlassPanel className="p-5 border-electric/30">
+        <Panel className="p-5 border-electric/30">
           <span className="text-[10px] font-mono uppercase tracking-widest text-lavender-dim block mb-1">
             Rules Evaluated
           </span>
@@ -82,9 +82,9 @@ export default function AnalyticsPage() {
           <span className="text-[11px] font-mono text-amber-300 block mt-1">
             All marked simulated
           </span>
-        </GlassPanel>
+        </Panel>
 
-        <GlassPanel className="p-5 border-electric/30">
+        <Panel className="p-5 border-electric/30">
           <span className="text-[10px] font-mono uppercase tracking-widest text-lavender-dim block mb-1">
             High Confidence Fields
           </span>
@@ -94,9 +94,9 @@ export default function AnalyticsPage() {
           <span className="text-[11px] font-mono text-lavender-dim block mt-1">
             All applicable signals passed
           </span>
-        </GlassPanel>
+        </Panel>
 
-        <GlassPanel className="p-5 border-electric/30">
+        <Panel className="p-5 border-electric/30">
           <span className="text-[10px] font-mono uppercase tracking-widest text-lavender-dim block mb-1">
             Active Conflicts
           </span>
@@ -106,14 +106,14 @@ export default function AnalyticsPage() {
           <span className="text-[11px] font-mono text-purple-400 block mt-1">
             Discharge date mismatch
           </span>
-        </GlassPanel>
+        </Panel>
       </div>
 
       {/* Distribution Charts (Pure CSS / Tailored Dark Visuals) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         
         {/* Card 1: Fields per Document */}
-        <GlassPanel className="p-5 border-electric/25">
+        <Panel className="p-5 border-electric/25">
           <h3 className="font-heading font-bold text-white text-sm mb-4">
             Fields Extracted per Document
           </h3>
@@ -133,10 +133,10 @@ export default function AnalyticsPage() {
               </div>
             ))}
           </div>
-        </GlassPanel>
+        </Panel>
 
         {/* Card 2: Rule Results by State */}
-        <GlassPanel className="p-5 border-electric/25">
+        <Panel className="p-5 border-electric/25">
           <h3 className="font-heading font-bold text-white text-sm mb-4">
             Rule Outcomes Breakdown
           </h3>
@@ -158,10 +158,10 @@ export default function AnalyticsPage() {
               );
             })}
           </div>
-        </GlassPanel>
+        </Panel>
 
         {/* Card 3: Confidence Distribution */}
-        <GlassPanel className="p-5 border-electric/25">
+        <Panel className="p-5 border-electric/25">
           <h3 className="font-heading font-bold text-white text-sm mb-4">
             Extraction Quality Tiers
           </h3>
@@ -185,7 +185,7 @@ export default function AnalyticsPage() {
               </div>
             ))}
           </div>
-        </GlassPanel>
+        </Panel>
 
       </div>
 
@@ -197,7 +197,7 @@ export default function AnalyticsPage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <GlassPanel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
+        <Panel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
           <div className="flex justify-between items-center mb-2">
             <span className="font-heading font-bold text-lavender text-xs">Processing Performance</span>
             <PlannedBadge type="PLANNED" />
@@ -205,9 +205,9 @@ export default function AnalyticsPage() {
           <p className="text-xs font-mono text-lavender-dim leading-relaxed">
             P95 extraction latency, GPU inference benchmarks, and OCR throughput tracking.
           </p>
-        </GlassPanel>
+        </Panel>
 
-        <GlassPanel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
+        <Panel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
           <div className="flex justify-between items-center mb-2">
             <span className="font-heading font-bold text-lavender text-xs">Verification Reports</span>
             <PlannedBadge type="PLANNED" />
@@ -215,9 +215,9 @@ export default function AnalyticsPage() {
           <p className="text-xs font-mono text-lavender-dim leading-relaxed">
             Batch exportable PDF and FHIR compliance certificates for insurer integration.
           </p>
-        </GlassPanel>
+        </Panel>
 
-        <GlassPanel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
+        <Panel className="p-5 border-dashed border-electric/20 bg-deepblack/40">
           <div className="flex justify-between items-center mb-2">
             <span className="font-heading font-bold text-lavender text-xs">System Insights</span>
             <PlannedBadge type="PLANNED" />
@@ -225,7 +225,7 @@ export default function AnalyticsPage() {
           <p className="text-xs font-mono text-lavender-dim leading-relaxed">
             Longitudinal hospital documentation trend analysis and insurer dispute minimization.
           </p>
-        </GlassPanel>
+        </Panel>
       </div>
 
     </div>

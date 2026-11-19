@@ -11,7 +11,7 @@ import {
   Database,
   FileCheck2
 } from 'lucide-react';
-import GlassPanel from '../components/ui/GlassPanel';
+import Panel from '../components/ui/Panel';
 import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import StatusBadge from '../components/ui/StatusBadge';
@@ -44,7 +44,7 @@ export default function VerificationPage() {
       />
 
       {/* Verification Rule Notice */}
-      <GlassPanel className="p-4 mb-8 border-electric/30 bg-deepblack/60">
+      <Panel className="p-4 mb-8 border-electric/30 bg-deepblack/60">
         <div className="flex items-center gap-2 text-xs font-mono text-amber-300 font-bold mb-1">
           <ShieldAlert className="w-4 h-4" />
           <span>SIMULATED RULES PROTOCOL</span>
@@ -52,7 +52,7 @@ export default function VerificationPage() {
         <p className="text-xs font-mono text-lavender-dim leading-relaxed">
           In accordance with project rules, all four validation rules currently carry <strong className="text-amber-300">rule_status = &ldquo;simulated&rdquo;</strong>. No official insurer clauses or policy sections are invented. Missing documentation (such as an admission note) strictly returns <strong className="text-amber-300">Missing</strong> and is never converted to a Pass.
         </p>
-      </GlassPanel>
+      </Panel>
 
       {/* Rules Breakdown */}
       <div className="space-y-6 mb-12">
@@ -62,7 +62,7 @@ export default function VerificationPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {data?.rule_results?.map((r, idx) => (
-            <GlassPanel key={idx} className="p-6 border-electric/25 bg-deepblack/70 flex flex-col justify-between">
+            <Panel key={idx} className="p-6 border-electric/25 bg-deepblack/70 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function VerificationPage() {
                   {r.action}
                 </span>
               </div>
-            </GlassPanel>
+            </Panel>
           ))}
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function VerificationPage() {
         description="Rule ICD-01 validates diagnosis codes against datasets/icd10_sample.csv (~20 sample prototype codes)."
       />
 
-      <GlassPanel className="p-6 border-electric/30">
+      <Panel className="p-6 border-electric/30">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 pb-4 border-b border-white/5">
           <div>
             <span className="text-xs font-mono font-bold text-white block">
@@ -122,7 +122,7 @@ export default function VerificationPage() {
             &bull; Verification Status: Matched verbatim in reference catalog. Prototype uses a small sample, not full ICD-10 registry.
           </p>
         </div>
-      </GlassPanel>
+      </Panel>
 
     </div>
   );

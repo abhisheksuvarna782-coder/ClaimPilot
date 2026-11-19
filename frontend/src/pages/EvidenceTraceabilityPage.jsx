@@ -11,7 +11,7 @@ import {
   HelpCircle,
   Layers
 } from 'lucide-react';
-import GlassPanel from '../components/ui/GlassPanel';
+import Panel from '../components/ui/Panel';
 import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import StatusBadge from '../components/ui/StatusBadge';
@@ -40,7 +40,7 @@ export default function EvidenceTraceabilityPage() {
       />
 
       {/* Note on Confidence Label */}
-      <GlassPanel className="p-4 mb-8 border-electric/30 bg-deepblack/60">
+      <Panel className="p-4 mb-8 border-electric/30 bg-deepblack/60">
         <div className="flex items-center gap-2 text-xs font-mono text-electric-light font-bold mb-1">
           <Compass className="w-4 h-4 text-electric-glow" />
           <span>CONFIDENCE SCORE DEFINITION</span>
@@ -48,7 +48,7 @@ export default function EvidenceTraceabilityPage() {
         <p className="text-xs font-mono text-lavender-dim leading-relaxed">
           In this prototype, <strong className="text-white">Confidence</strong> is an extraction-quality indicator evaluating verbatim snippet presence, syntactic validity, and cross-document agreement. It is <span className="text-amber-300 font-bold">not a probability score</span>. Single-document fields denote cross-document agreement as &quot;not applicable&quot; rather than false.
         </p>
-      </GlassPanel>
+      </Panel>
 
       {/* Traceability Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -56,7 +56,7 @@ export default function EvidenceTraceabilityPage() {
           const signals = f.signals || {};
 
           return (
-            <GlassPanel
+            <Panel
               key={idx}
               interactive
               onClick={() => {
@@ -148,7 +148,7 @@ export default function EvidenceTraceabilityPage() {
                 </div>
               </div>
 
-            </GlassPanel>
+            </Panel>
           );
         })}
       </div>

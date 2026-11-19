@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Button({
   children,
@@ -6,33 +7,56 @@ export default function Button({
   size = 'md',
   className = '',
   icon: Icon,
+  disabled = false,
   ...props
 }) {
-  const base = "relative inline-flex items-center justify-center font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group overflow-hidden";
-  
+  const base = "relative inline-flex items-center justify-center font-display tracking-wider uppercase transition-all duration-200 ease-studio disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-electric";
+
   const sizes = {
-    sm: "px-3 py-1.5 text-xs rounded-lg gap-1.5",
-    md: "px-5 py-2.5 text-xs uppercase tracking-wider rounded-xl gap-2 font-semibold",
-    lg: "px-7 py-3.5 text-sm uppercase tracking-widest rounded-xl gap-3 font-bold",
+    sm: "px-3.5 py-1.5 text-[11px] gap-2 rounded-sm",
+    md: "px-5 py-2.5 text-xs gap-2.5 rounded-sm",
+    lg: "px-7 py-3 text-xs gap-3 rounded-sm",
   };
 
   const variants = {
-    primary: "bg-electric hover:bg-electric-light text-white shadow-glow-sm hover:shadow-glow-md border border-electric-light/50",
-    secondary: "bg-deepblack/80 hover:bg-deepblack text-lavender-light border border-electric/30 hover:border-electric-light/70 shadow-sm hover:shadow-glow-sm",
-    outline: "bg-transparent text-lavender-light border border-lavender-dim/30 hover:border-electric-light hover:text-white",
-    ghost: "bg-transparent hover:bg-electric/10 text-lavender-dim hover:text-lavender-light",
+    // Primary solid electric medical blue with lavender-highlight text
+    primary: "bg-electric text-lavender-highlight hover:bg-[#0092C7] active:bg-[#006082] border border-electric/60 shadow-none",
+    
+    // Hairline outline panel
+    outline: "bg-deepblack text-lavender hover:text-lavender-highlight border border-lavender-border hover:border-electric active:bg-lavender-faint",
+    
+    // Clean transparent ghost
+    ghost: "bg-transparent text-lavender-muted hover:text-lavender-highlight hover:bg-lavender-faint border border-transparent",
+
+    // Human Next Reference CTA: Circular hairline outline with arrow
+    cta: "bg-transparent text-lavender hover:text-lavender-highlight group border border-transparent p-0 normal-case tracking-normal",
   };
+
+  if (variant === 'cta') {
+    return (
+      <button
+        disabled={disabled}
+        className={`inline-flex items-center gap-3.5 group cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-electric rounded-full ${className}`}
+        {...props}
+      >
+        <span className="w-10 h-10 rounded-full border border-lavender-border group-hover:border-electric group-hover:text-lavender-highlight text-lavender flex items-center justify-center transition-colors duration-200 ease-studio">
+          <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+        </span>
+        <span className="font-display text-xs uppercase tracking-[0.2em] text-lavender-muted group-hover:text-lavender-highlight transition-colors duration-200">
+          {children}
+        </span>
+      </button>
+    );
+  }
 
   return (
     <button
+      disabled={disabled}
       className={`${base} ${sizes[size] || sizes.md} ${variants[variant] || variants.primary} ${className}`}
       {...props}
     >
-      {/* Subtle background light sweep */}
-      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none" />
-      {Icon && <Icon className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />}
+      {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
       <span>{children}</span>
     </button>
   );
 }
-

@@ -17,10 +17,15 @@ import PlannedPage from './pages/PlannedPage';
 import UploadDocumentsPage from './pages/UploadDocumentsPage';
 import PolicyCompliancePage from './pages/PolicyCompliancePage';
 import HumanReviewPage from './pages/HumanReviewPage';
+import StyleGuidePage from './pages/StyleGuidePage';
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(() => {
-    // Only show intro once per browser session
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('intro') === 'true') return true;
+      if (window.location.pathname === '/style-guide') return false;
+    }
     return !sessionStorage.getItem('claimpilot_intro_shown');
   });
 
@@ -181,22 +186,25 @@ export default function App() {
                   }
                 />
 
+                {/* Phase 2 Style Guide */}
+                <Route path="/style-guide" element={<StyleGuidePage />} />
+
                 {/* Catch-all */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
 
             {/* Futuristic Minimalist Footer */}
-            <footer className="border-t border-electric/15 bg-deepblack/90 py-6 px-6 text-center text-xs font-mono text-lavender-dim">
+            <footer className="border-t border-lavender-border bg-deepblack py-6 px-6 text-center text-xs font-mono text-lavender-muted">
               <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-electric-glow animate-pulse" />
-                  <span className="text-white font-bold tracking-wider">CLAIM<span className="text-electric-light">PILOT</span></span>
-                  <span className="text-lavender-dim/50">&bull;</span>
-                  <span>Deterministic Healthcare Intelligence</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-electric" />
+                  <span className="text-lavender-highlight font-bold tracking-wider">CLAIM<span className="text-electric">PILOT</span></span>
+                  <span className="text-lavender-muted/50">&bull;</span>
+                  <span>Evidence-Linked Claim Verification</span>
                 </div>
 
-                <div className="text-[11px] text-lavender-dim/70">
+                <div className="text-[11px] text-lavender-muted">
                   Prototype demonstration &bull; Synthetic records only &bull; LLM does not decide compliance
                 </div>
 

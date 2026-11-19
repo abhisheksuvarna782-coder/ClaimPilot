@@ -11,7 +11,7 @@ import {
   Workflow,
   AlertTriangle
 } from 'lucide-react';
-import GlassPanel from '../components/ui/GlassPanel';
+import Panel from '../components/ui/Panel';
 import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import PlannedBadge from '../components/ui/PlannedBadge';
@@ -85,7 +85,7 @@ export default function AIIntelligencePage() {
       />
 
       {/* Prototype Honest Architecture Banner */}
-      <GlassPanel className="p-5 mb-8 border-electric/30 bg-deepblack/70">
+      <Panel className="p-5 mb-8 border-electric/30 bg-deepblack/70">
         <div className="flex items-center gap-2 text-xs font-mono text-electric-light font-bold mb-1.5">
           <Workflow className="w-4 h-4 text-electric-glow" />
           <span>CURRENT EXTRACTION MODALITY: REGEX ENGINE</span>
@@ -93,12 +93,12 @@ export default function AIIntelligencePage() {
         <p className="text-xs font-mono text-lavender-dim leading-relaxed">
           In this prototype, extraction is carried out by a dedicated deterministic regex module (<code className="text-white">backend/extractor.py</code>) built to enforce strict verbatim snippet provenance. An LLM-assisted extraction pathway with automated bounded retries is architecturally designed for Phase 4.
         </p>
-      </GlassPanel>
+      </Panel>
 
       {/* 6-Stage Pipeline Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {PIPELINE_STAGES.map((st, idx) => (
-          <GlassPanel key={idx} className="p-5 flex flex-col justify-between border-electric/25">
+          <Panel key={idx} className="p-5 flex flex-col justify-between border-electric/25">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-heading font-black text-electric-glow">
@@ -119,7 +119,7 @@ export default function AIIntelligencePage() {
                 {st.desc}
               </p>
             </div>
-          </GlassPanel>
+          </Panel>
         ))}
       </div>
 
@@ -133,7 +133,7 @@ export default function AIIntelligencePage() {
       {data?.conflicts && data.conflicts.length > 0 ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {data.conflicts.map((conf, idx) => (
-            <GlassPanel key={idx} className="p-6 border-purple-500/40 bg-deepblack/80">
+            <Panel key={idx} className="p-6 border-purple-500/40 bg-deepblack/80">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="w-5 h-5 text-purple-400" />
@@ -165,13 +165,13 @@ export default function AIIntelligencePage() {
               <p className="text-xs font-mono text-lavender-dim p-3 rounded-lg bg-deepblack/60 border border-white/5">
                 {conf.explanation}
               </p>
-            </GlassPanel>
+            </Panel>
           ))}
         </div>
       ) : (
-        <GlassPanel className="p-8 text-center text-lavender-dim text-xs font-mono">
+        <Panel className="p-8 text-center text-lavender-dim text-xs font-mono">
           No cross-document contradictions detected.
-        </GlassPanel>
+        </Panel>
       )}
 
     </div>

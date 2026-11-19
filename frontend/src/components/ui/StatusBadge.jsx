@@ -13,79 +13,89 @@ export default function StatusBadge({ status, size = 'sm', className = '' }) {
   const norm = String(status || '').trim();
 
   const configs = {
+    // 1. Five Deterministic Rule Evaluation States (Muted semantic tints)
     'Pass': {
       label: 'Pass',
       icon: CheckCircle2,
-      style: 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.2)]',
+      style: 'bg-status-pass-bg text-status-pass-text border-status-pass-border',
     },
     'Fail': {
       label: 'Fail',
       icon: XCircle,
-      style: 'bg-rose-950/40 text-rose-300 border-rose-500/40 shadow-[0_0_10px_rgba(244,63,94,0.2)]',
+      style: 'bg-status-fail-bg text-status-fail-text border-status-fail-border',
     },
     'Missing': {
       label: 'Missing',
       icon: AlertCircle,
-      style: 'bg-amber-950/40 text-amber-300 border-amber-500/40 shadow-[0_0_10px_rgba(245,158,11,0.2)]',
+      style: 'bg-status-missing-bg text-status-missing-text border-status-missing-border',
     },
     'Conflict': {
       label: 'Conflict',
       icon: ShieldAlert,
-      style: 'bg-purple-950/40 text-purple-300 border-purple-500/40 shadow-[0_0_10px_rgba(168,85,247,0.25)]',
+      style: 'bg-status-conflict-bg text-status-conflict-text border-status-conflict-border',
     },
     'Unable to verify': {
       label: 'Unable to verify',
       icon: HelpCircle,
-      style: 'bg-slate-900/60 text-lavender-dim border-lavender-dim/30 shadow-[0_0_8px_rgba(142,136,168,0.15)]',
+      style: 'bg-status-unverified-bg text-status-unverified-text border-status-unverified-border',
     },
-    // Confidence badges
+
+    // 2. Confidence Signals
     'high': {
       label: 'High Confidence',
       icon: Sparkles,
-      style: 'bg-electric-dark/40 text-electric-glow border-electric/40 shadow-[0_0_10px_rgba(0,194,255,0.2)]',
+      style: 'bg-lavender-faint text-lavender-highlight border-electric/40',
+      iconStyle: 'text-electric',
     },
     'medium': {
       label: 'Medium Confidence',
       icon: Clock,
-      style: 'bg-amber-950/30 text-amber-300 border-amber-500/30',
+      style: 'bg-status-missing-bg text-status-missing-text border-status-missing-border',
     },
     'low': {
       label: 'Low Confidence',
       icon: AlertCircle,
-      style: 'bg-rose-950/30 text-rose-300 border-rose-500/30',
+      style: 'bg-status-fail-bg text-status-fail-text border-status-fail-border',
     },
-    // Field status badges
+
+    // 3. Field Status
     'verified': {
       label: 'Verified',
       icon: CheckCircle2,
-      style: 'bg-emerald-950/30 text-emerald-300 border-emerald-500/30',
+      style: 'bg-status-pass-bg text-status-pass-text border-status-pass-border',
     },
     'needs_review': {
       label: 'Needs Review',
       icon: AlertCircle,
-      style: 'bg-amber-950/30 text-amber-300 border-amber-500/30',
+      style: 'bg-status-missing-bg text-status-missing-text border-status-missing-border',
+    },
+
+    // 4. Simulated Rule Tag
+    'simulated': {
+      label: 'Simulated Rule',
+      icon: Clock,
+      style: 'bg-lavender-faint text-lavender-muted border-lavender-border',
     },
   };
 
   const cfg = configs[norm] || {
     label: norm || 'Unknown',
     icon: HelpCircle,
-    style: 'bg-deepblack text-lavender-dim border-electric/20',
+    style: 'bg-deepblack text-lavender-muted border-lavender-border',
   };
 
   const Icon = cfg.icon;
 
   const sizeClasses = size === 'xs' 
     ? 'px-2 py-0.5 text-[10px] gap-1' 
-    : 'px-2.5 py-1 text-xs gap-1.5';
+    : 'px-2.5 py-1 text-[11px] gap-1.5';
 
   return (
     <span
-      className={`inline-flex items-center font-mono font-medium rounded-full border backdrop-blur-md uppercase tracking-wider ${sizeClasses} ${cfg.style} ${className}`}
+      className={`inline-flex items-center font-mono font-medium border rounded-sm tracking-tight transition-colors duration-150 ${cfg.style} ${sizeClasses} ${className}`}
     >
-      <Icon className={size === 'xs' ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
+      <Icon className={`${size === 'xs' ? 'w-2.5 h-2.5 shrink-0 stroke-[2]' : 'w-3 h-3 shrink-0 stroke-[2]'} ${cfg.iconStyle || ''}`} />
       <span>{cfg.label}</span>
     </span>
   );
 }
-
