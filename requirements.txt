@@ -1,0 +1,8 @@
+# Backend dependencies for ClaimPilot prototype
+fastapi==0.141.1
+uvicorn==0.52.1
+pdfplumber==0.11.10
+pypdf==7.1.1
+reportlab==5.1.0
+pytest==9.2.0
+python-dotenv==1.0.1

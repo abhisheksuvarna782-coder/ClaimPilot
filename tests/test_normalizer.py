@@ -22,3 +22,4 @@ def test_date_normalizer_invalid():
     assert normalize_date("") is None
     assert normalize_date("invalid-date-string") is None
     assert normalize_date(None) is None
+

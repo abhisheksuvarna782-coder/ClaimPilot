@@ -43,6 +43,19 @@ def test_rule_date01():
     res_fail = evaluate_date01_intra_doc_dates(invalid_fields)
     assert res_fail["result"] == "Fail"
 
+def test_rule_unable_to_verify():
+    # Covers the 5th validation state: 'Unable to verify'
+    # Example: a date field that cannot be parsed into YYYY-MM-DD
+    unparseable_fields = [
+        {"field": "admission_date", "value": "2026-03-05", "source_doc": "discharge_summary.pdf"},
+        {"field": "discharge_date", "value": "UNPARSEABLE_DATE_STRING", "source_doc": "discharge_summary.pdf"},
+    ]
+    res_unable = evaluate_date01_intra_doc_dates(unparseable_fields)
+    assert res_unable["rule_id"] == "DATE-01"
+    assert res_unable["result"] == "Unable to verify"
+    assert res_unable["rule_status"] == "simulated"
+    assert "Unable to verify" in res_unable["explanation"]
+
 def test_rule_xdoc01():
     # Conflicting discharge dates across documents -> Conflict
     conflicting_fields = [
@@ -85,3 +98,4 @@ def test_rule_icd01():
     # Missing code -> Missing
     res_missing = evaluate_icd01_code([], sample_catalog)
     assert res_missing["result"] == "Missing"
+

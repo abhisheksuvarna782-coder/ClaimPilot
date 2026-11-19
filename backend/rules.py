@@ -82,18 +82,26 @@ def evaluate_date01_intra_doc_dates(extracted_fields: List[Dict[str, Any]]) -> D
 
     doc_reports = []
     has_failure = False
-    has_missing_in_doc = False
+    has_unparseable_or_incomplete = False
 
     for doc, dates in docs_dates.items():
         adm = dates.get("admission_date")
         dis = dates.get("discharge_date")
+        # Check if both dates are present and match valid YYYY-MM-DD
         if adm and dis:
-            doc_reports.append(f"{doc} (admission: {adm}, discharge: {dis})")
-            if dis < adm:
-                has_failure = True
+            import re
+            is_valid_adm = bool(re.match(r"^\d{4}-\d{2}-\d{2}$", adm))
+            is_valid_dis = bool(re.match(r"^\d{4}-\d{2}-\d{2}$", dis))
+            if not is_valid_adm or not is_valid_dis:
+                has_unparseable_or_incomplete = True
+                doc_reports.append(f"{doc} (unparseable date: adm='{adm}', dis='{dis}')")
+            else:
+                doc_reports.append(f"{doc} (admission: {adm}, discharge: {dis})")
+                if dis < adm:
+                    has_failure = True
         else:
-            has_missing_in_doc = True
-            doc_reports.append(f"{doc} (incomplete dates)")
+            has_unparseable_or_incomplete = True
+            doc_reports.append(f"{doc} (incomplete date pair)")
 
     if has_failure:
         return {
@@ -106,15 +114,15 @@ def evaluate_date01_intra_doc_dates(extracted_fields: List[Dict[str, Any]]) -> D
             "action": "Correct the inverted admission or discharge date in the record."
         }
 
-    if not doc_reports or has_missing_in_doc and len(doc_reports) == 1:
+    if has_unparseable_or_incomplete:
         return {
             "rule_id": "DATE-01",
             "description": "Discharge date is not before admission date",
             "result": "Unable to verify",
             "rule_status": "simulated",
             "fields_used": ["admission_date", "discharge_date"],
-            "explanation": f"Incomplete date pairs encountered. Checked: {'; '.join(doc_reports)}.",
-            "action": "Ensure complete admission and discharge dates exist on all documents."
+            "explanation": f"Unable to verify date chronology due to unparseable or incomplete dates. Checked: {'; '.join(doc_reports)}.",
+            "action": "Ensure readable and standardized dates (YYYY-MM-DD) are provided in all documents."
         }
 
     return {
@@ -245,3 +253,4 @@ def run_all_rules(
         evaluate_xdoc01_cross_doc_dates(extracted_fields),
         evaluate_icd01_code(extracted_fields, icd_catalog),
     ]
+

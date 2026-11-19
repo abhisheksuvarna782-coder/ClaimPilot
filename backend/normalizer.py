@@ -47,3 +47,4 @@ def normalize_date(date_str: str) -> Optional[str]:
                 pass
                 
     return None
+
