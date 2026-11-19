@@ -17,8 +17,8 @@ ClaimPilot is an AI-assisted, deterministically verified health insurance pre-su
 | • **Four deterministic rules** executing in pure Python (LLM never decides compliance) | • **Sample ICD-10 list**: Small reference table (`~20` codes), not full ICD-10 catalog | • **OCR pipeline** for scanned and handwritten claims |
 | • **Strict 5-state validation engine**: `Pass`, `Fail`, `Missing`, `Conflict`, `Unable to verify` | • **Regex standing in for LLM**: Handcrafted regex extractor tuned to prototype documents | • **Staff correction & approval gate** with audit trail |
 | • **FastAPI backend** (`POST /analyze`, `GET /documents/{name}/pages/{n}`) | | • **Full claim packet PDF generation** |
-| • **React single-screen dashboard** (Tailwind CSS, field table, rule cards, conflict card) | | • **Official-verified insurer rulebook** with cited clause references |
-| • **Interactive Source Inspector** with dynamic text snippet highlighting | | • **20-case clinical evaluation benchmark** |
+| • **Futuristic Cinematic Web Experience** (Top horizontal navigation, custom animated mega-dropdowns, procedural Three.js 3D medical AI visual, equalizer wave loading sequence, zero sidebar/dashboard) | | • **Official-verified insurer rulebook** with cited clause references |
+| • **Interactive Source Inspector** with dynamic verbatim text snippet highlighting | | • **20-case clinical evaluation benchmark** |
 | • **Pytest test suite** (11 unit and API validation tests, 100% passing) | | |
 
 ---
