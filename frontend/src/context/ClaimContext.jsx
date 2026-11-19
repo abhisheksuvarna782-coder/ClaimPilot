@@ -94,3 +94,4 @@ export function useClaim() {
   if (!ctx) throw new Error('useClaim must be used within ClaimProvider');
   return ctx;
 }
+

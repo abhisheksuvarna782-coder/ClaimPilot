@@ -14,6 +14,9 @@ import AIIntelligencePage from './pages/AIIntelligencePage';
 import VerificationPage from './pages/VerificationPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import PlannedPage from './pages/PlannedPage';
+import UploadDocumentsPage from './pages/UploadDocumentsPage';
+import PolicyCompliancePage from './pages/PolicyCompliancePage';
+import HumanReviewPage from './pages/HumanReviewPage';
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(() => {
@@ -97,17 +100,7 @@ export default function App() {
                 <Route path="/documents/sources" element={<SourceDocumentsPage />} />
                 <Route path="/documents/extracted" element={<EvidenceTraceabilityPage />} />
                 <Route path="/documents/traceability" element={<EvidenceTraceabilityPage />} />
-                <Route
-                  path="/documents/upload"
-                  element={
-                    <PlannedPage
-                      title="Upload Documents"
-                      description="Multi-page PDF and medical image intake pipeline with automated OCR preprocessing and quality enhancement."
-                      relatedLivePath="/documents/sources"
-                      relatedLiveName="Source Documents"
-                    />
-                  }
-                />
+                <Route path="/documents/upload" element={<UploadDocumentsPage />} />
                 <Route
                   path="/documents/processing"
                   element={
@@ -149,28 +142,8 @@ export default function App() {
                 {/* Verification */}
                 <Route path="/verification/rules" element={<VerificationPage />} />
                 <Route path="/verification/icd10" element={<VerificationPage />} />
-                <Route
-                  path="/verification/policy"
-                  element={
-                    <PlannedPage
-                      title="Policy Compliance"
-                      description="Official insurer policy clause cross-referencing and clause-level entitlement verification."
-                      relatedLivePath="/verification/rules"
-                      relatedLiveName="Rule Validation"
-                    />
-                  }
-                />
-                <Route
-                  path="/verification/human-review"
-                  element={
-                    <PlannedPage
-                      title="Human Review Preview"
-                      description="View-only preview listing items needing review with evidence citations. Human approval and rejection actions are not implemented in this prototype."
-                      relatedLivePath="/verification/rules"
-                      relatedLiveName="Rule Validation"
-                    />
-                  }
-                />
+                <Route path="/verification/policy" element={<PolicyCompliancePage />} />
+                <Route path="/verification/human-review" element={<HumanReviewPage />} />
 
                 {/* Analytics */}
                 <Route path="/analytics/statistics" element={<AnalyticsPage />} />

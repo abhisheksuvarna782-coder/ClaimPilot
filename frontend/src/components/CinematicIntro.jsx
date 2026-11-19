@@ -255,3 +255,4 @@ export default function CinematicIntro({ onComplete, onPrefetchedData }) {
     </div>
   );
 }
+

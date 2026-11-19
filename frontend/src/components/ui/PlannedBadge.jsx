@@ -19,3 +19,4 @@ export default function PlannedBadge({ type = 'PLANNED', className = '' }) {
     </span>
   );
 }
+
