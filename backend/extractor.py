@@ -1,9 +1,17 @@
 import os
+import sys
 import re
 from typing import List, Dict, Any, Tuple, Optional
 import pdfplumber
 
-from backend.normalizer import normalize_date
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+try:
+    from backend.normalizer import normalize_date
+except ImportError:
+    from normalizer import normalize_date
 
 # Synthetic extraction fields specification
 SUPPORTED_FIELDS = [

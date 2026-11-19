@@ -1,14 +1,28 @@
 import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict, Any, List
 
-from backend.extractor import (
-    load_pdf_pages,
-    extract_fields_from_page,
-    evaluate_signals_and_confidence,
-)
-from backend.rules import run_all_rules, load_icd10_sample_codes
+try:
+    from backend.extractor import (
+        load_pdf_pages,
+        extract_fields_from_page,
+        evaluate_signals_and_confidence,
+    )
+    from backend.rules import run_all_rules, load_icd10_sample_codes
+except ImportError:
+    from extractor import (
+        load_pdf_pages,
+        extract_fields_from_page,
+        evaluate_signals_and_confidence,
+    )
+    from rules import run_all_rules, load_icd10_sample_codes
 
 SYNTHETIC_BANNER = "SYNTHETIC DEMONSTRATION DATA - NOT A REAL PATIENT RECORD"
 
