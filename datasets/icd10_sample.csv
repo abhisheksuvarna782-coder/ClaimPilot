@@ -1,0 +1,22 @@
+# NOTE: This is a small sample dataset (~20 codes) for the ClaimPilot prototype, not the full ICD-10 dataset.
+code,description,category
+K35.80,Unspecified acute appendicitis,Diseases of the digestive system
+K35.2,Acute appendicitis with generalized peritonitis,Diseases of the digestive system
+K35.3,Acute appendicitis with localized peritonitis,Diseases of the digestive system
+E11.9,Type 2 diabetes mellitus without complications,Endocrine nutritional and metabolic diseases
+I10,Essential primary hypertension,Circulatory system
+J18.9,Pneumonia unspecified organism,Respiratory system
+J45.909,Unspecified asthma uncomplicated,Respiratory system
+K21.9,Gastro-esophageal reflux disease without esophagitis,Digestive system
+M54.5,Low back pain,Musculoskeletal system
+R07.9,Chest pain unspecified,Symptoms and signs
+R10.9,Abdominal pain unspecified,Symptoms and signs
+R50.9,Fever unspecified,Symptoms and signs
+S82.801A,Unspecified fracture of right lower leg,Injury and poisoning
+Z00.00,Encounter for general adult medical examination,Factors influencing health status
+K80.20,Calculus of gallbladder without cholecystitis,Digestive system
+N39.0,Urinary tract infection site not specified,Genitourinary system
+A09,Infectious gastroenteritis and colitis unspecified,Infectious and parasitic diseases
+B34.9,Viral infection unspecified,Infectious and parasitic diseases
+C50.919,Malignant neoplasm of unspecified site of female breast,Neoplasms
+I21.9,Acute myocardial infarction unspecified,Circulatory system
