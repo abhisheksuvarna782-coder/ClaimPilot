@@ -145,17 +145,21 @@ The demonstration pre-loads two synthetic PDF documents (`discharge_summary.pdf`
 *(Placeholder links for submission visuals)*
 
 ### 1. Full Dashboard Overview
-![Full Dashboard View](docs/screenshots/01_full_dashboard.png)
+![Full Dashboard View](<img width="1365" height="716" alt="Screenshot 2026-11-19 184028" src="https://github.com/user-attachments/assets/e3f5f4a4-ddc6-4166-bfca-ffdc15c56c9b" />
+)
 *Complete screen showing synthetic data banner, extracted fields table, deterministic rule results, and cross-document conflict card.*
 
 ### 2. Interactive Source Snippet Highlight
-![Source Inspector Highlight](docs/screenshots/02_source_inspector_highlight.png)
+![Source Inspector Highlight](<img width="1365" height="733" alt="Screenshot 2026-11-19 184108" src="https://github.com/user-attachments/assets/d632e9b1-ee3d-4892-b540-2f7644c7105a" />
+)
 *Field clicked on the table with corresponding verbatim text snippet highlighted in the page text inspector.*
 
 ### 3. Missing Admission Note Card & Action
-![Missing Admission Note Card](docs/screenshots/03_missing_admission_note.png)
+![Missing Admission Note Card](<img width="1365" height="719" alt="Screenshot 2026-11-19 184947" src="https://github.com/user-attachments/assets/a0192538-c693-4b45-b5fb-83cba23adc31" />
+)
 *Rule DOC-04 displaying Missing state with recommended staff remediation action.*
 
 ### 4. Passing Pytest Verification Suite
-![Pytest Terminal](docs/screenshots/04_pytest_passed.png)
+![Pytest Terminal](<img width="1365" height="714" alt="Screenshot 2026-11-19 184911" src="https://github.com/user-attachments/assets/d7b79b7c-1e87-4691-85fb-350613cd69fd" />
+)
 *Terminal showing 11/11 passing tests across date normalization, rules engine states, and API endpoints.*
